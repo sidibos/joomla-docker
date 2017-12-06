@@ -7,10 +7,10 @@ Browse `http://localhost:8080`
 
 Enter the folowing details for the database
 
-User Name `root`
+Host Name `yoti_joomladb`
+
+Username `root`
 
 Password `root`
 
 Database Name `yotijoomla`
-
-Host `yoti_joomladb`
