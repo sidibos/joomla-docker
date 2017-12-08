@@ -1,7 +1,10 @@
 # joomla-docker
 
 ## Setup
-Run the following command `docker-compose up -d` Add `--build` to rebuild the image
+Run the following command
+`cd joomla-docker`
+
+`docker-compose up -d` and add `--build` at the end if you want to rebuild the image.
 
 Browse `http://localhost:8080`
 
