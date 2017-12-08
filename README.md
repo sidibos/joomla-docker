@@ -20,6 +20,6 @@ Database Name `yotijoomla`
 Table Prefix  `yoti_`
 
 ## Register Yoti plugin
-After doing Joomla set, run the command below to process the SQL dump script which will register Yoti plugin
+After doing Joomla set up, run the command below to process the SQL dump script which will register Yoti plugin
 
 `docker exec -i joomladocker_yoti_joomladb_1 mysql -uroot -proot yotijoomla < ./docker/db-dump/mysql-dump.sql`
