@@ -9,7 +9,7 @@ Run the following commands:
 
 Browse `http://localhost:8080`
 
-Follow the instructions to setup Joomal and enter the database details as described in the next section.
+Follow the instructions to setup Joomla and enter the database details as described in the next section.
 
 ## Database Configuration
 
