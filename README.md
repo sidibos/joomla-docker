@@ -1,17 +1,18 @@
 # joomla-docker
 
 ## Setup
-Run the following commands:
+Clone this repos and run the following commands:
 
 `cd joomla-docker`
 
 `docker-compose up -d` and add `--build` at the end if you want to rebuild the image.
 
-Browse `http://localhost:8080`
+Browse the link below and follow the instructions
 
-Follow the instructions to setup Joomla and enter the database details as described in the next section.
+`http://localhost:8080`
 
 ## Database Configuration
+Enter the following details for the database
 
 Host Name `yoti_joomladb`
 
