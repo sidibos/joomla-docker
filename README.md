@@ -5,7 +5,9 @@ Run the following command `docker-compose up -d` Add `--build` to rebuild the im
 
 Browse `http://localhost:8080`
 
-Follow the instructions to setup Joomal and enter the following details for the database:
+Follow the instructions to setup Joomal and enter the database details as described in the next section.
+
+## Database Configuration
 
 Host Name `yoti_joomladb`
 
@@ -14,6 +16,8 @@ Username `root`
 Password `root`
 
 Database Name `yotijoomla`
+
+Table Prefix  `yoti_`
 
 ## Register Yoti plugin
 After doing Joomla set, run the command below to process the SQL dump script which will register Yoti plugin
