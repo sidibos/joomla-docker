@@ -1,5 +1,5 @@
 FROM php:7.1-apache
-#ARG BRANCH
+ARG BRANCH
 MAINTAINER Michael Babker <michael.babker@joomla.org> (@mbabker)
 
 # Disable remote database security requirements.
@@ -20,7 +20,6 @@ RUN apt-get update && apt-get install -y zip unzip git vim nano
 VOLUME /var/www/html
 
 # Define Joomla version and expected SHA1 signature
-ENV BRANCH master
 ENV JOOMLA_VERSION 3.8.2
 ENV DEFAULT_BRANCH master
 ENV PLUGIN_PACKAGE_NAME yoti-joomla-v1.0.2-edge.zip
@@ -38,28 +37,27 @@ RUN curl -o joomla.zip -SL https://github.com/joomla/joomla-cms/releases/downloa
 	&& rm joomla.zip \
 	&& chown -R www-data:www-data /usr/src/joomla
 
-#RUN git clone -b ${BRANCH} https://github.com/getyoti/yoti-joomla.git --single-branch /usr/src/yoti-joomla \
-#    	&& echo "Finished cloning ${BRANCH}" \
-#	&& chown -R www-data:www-data /usr/src/yoti-joomla \
-#	&& cd /usr/src/yoti-joomla \
-#	&& mkdir __sdk-sym \
-#	&& ./pack-plugin.sh \
-#	&& mv ./${PLUGIN_PACKAGE_NAME} /usr/src/joomla \
-#	&& mv install-joomla-extension.php /usr/src/joomla/cli
+RUN git clone -b ${BRANCH} https://github.com/getyoti/yoti-joomla.git --single-branch /usr/src/yoti-joomla \
+    	&& echo "Finished cloning ${BRANCH}" \
+	&& chown -R www-data:www-data /usr/src/yoti-joomla \
+	&& cd /usr/src/yoti-joomla \
+	&& mkdir __sdk-sym \
+	&& ./pack-plugin.sh \
+	&& mv ./${PLUGIN_PACKAGE_NAME} /usr/src/joomla \
+	&& cd /usr/src/joomla \
+	&& mkdir yoti && mv ./${PLUGIN_PACKAGE_NAME} yoti \
+	&& cd yoti && unzip ${PLUGIN_PACKAGE_NAME} \
+	&& cd .. \
+	&& mv yoti/com_yoti.xml yoti/admin/ \
+	&& mv yoti/process-script.php yoti/admin/ \
+	&& mv yoti/admin yoti/com_yoti \
+	&& mv yoti/com_yoti administrator/components \
+	&& mv yoti/site yoti/com_yoti \
+	&& mv yoti/com_yoti components \
+	&& mv yoti/modules/mod_yoti modules \
+	&& mv yoti/plugins/yotiprofile plugins/user \
+	&& echo "Yoti extension installled" 
 
-#	&& cd /usr/src/joomla \
-# 	&& mkdir yoti && mv ./${PLUGIN_PACKAGE_NAME} yoti \
-#	&& cd yoti && unzip ${PLUGIN_PACKAGE_NAME} \
-#	&& cd .. \
-#	&& mv yoti/admin yoti/com_yoti \
-#	&& mv yoti/com_yoti administrator/components \
-#	&& mv yoti/site yoti/com_yoti \
-#	&& mv yoti/com_yoti components \
-#	&& mv yoti/modules/mod_yoti modules \
-#	&& mv yoti/plugins/yotiprofile plugins/user
-
-#	&& php ./install-joomla-extension.php --package=../${PLUGIN_PACKAGE_NAME} \
-#	&& echo "Yoti extension installled" 
 
 # Copy init scripts and custom .htaccess
 COPY docker-entrypoint.sh /entrypoint.sh

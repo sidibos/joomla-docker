@@ -4,8 +4,8 @@ services:
   yoti-joomla:
     build:
       context: ./docker/
-#      args:
-#        BRANCH: "SDK-104"
+      args:
+        BRANCH: "SDK-104"
     restart: always
     links:
       - yoti_joomladb:mysql
@@ -23,3 +23,5 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
+#    volumes:
+#      - ./docker/db-dump:/docker-entrypoint-initdb.d
