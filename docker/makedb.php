@@ -34,21 +34,6 @@ if (!$mysql->query('CREATE DATABASE IF NOT EXISTS `' . $mysql->real_escape_strin
 	exit(1);
 }
 
-/*sleep(3);
-
-$createYotiUsers = "CREATE TABLE IF NOT EXISTS `yotijoomla.yoti_yoti_users` (
-  `joomla_userid` int(15) NOT NULL,
-  `identifier` text NOT NULL,
-  `data` text NOT NULL,
-  PRIMARY KEY (`joomla_userid`)
-)";
-
-if (!$mysql->query($createYotiUsers))
-{
-        fwrite($stderr, "\nMySQL 'CREATE TABLE yoti_yoti_users' Error: " . $mysql->error . "\n");
-        $mysql->close();
-        exit(1);
-}*/
 
 fwrite($stderr, "\nMySQL Database Created\n");
 $mysql->close();	
