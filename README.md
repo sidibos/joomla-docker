@@ -33,3 +33,10 @@ After doing Joomla set up, run the command below to process the SQL dump script 
 Please make sure you enable Yoti module and Yoti plugin from Joomla admin in http://yoursite.com/administrator.
 
 And follow the instructions [here](https://github.com/getyoti/yoti-joomla) to set Yoti up.
+
+## Removing docker containers
+Run the following commands to remove docker container:
+
+`docker-compose stop` and
+
+`docker-compose rm`
