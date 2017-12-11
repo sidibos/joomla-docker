@@ -1,5 +1,7 @@
 FROM php:7.1-apache
+
 ARG BRANCH
+
 MAINTAINER Michael Babker <michael.babker@joomla.org> (@mbabker)
 
 # Disable remote database security requirements.
@@ -58,6 +60,7 @@ RUN git clone -b ${BRANCH} https://github.com/getyoti/yoti-joomla.git --single-b
 	&& mv yoti/plugins/yotiprofile plugins/user \
 	&& echo "Yoti extension installled" 
 
+RUN echo "Yoti Branch ${BRANCH}"
 
 # Copy init scripts and custom .htaccess
 COPY docker-entrypoint.sh /entrypoint.sh

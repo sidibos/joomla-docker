@@ -5,7 +5,9 @@ Clone this repos and run the following commands:
 
 `cd joomla-docker`
 
-`docker-compose up -d` and add `--build` at the end if you want to rebuild the image.
+`docker-compose build` If you want to rebuild the image
+
+`docker-compose up -d` to build the containers.
 
 Browse the link below and follow the instructions
 
