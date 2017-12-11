@@ -35,7 +35,7 @@ Please make sure you enable Yoti module and Yoti plugin from Joomla admin in htt
 And follow the instructions [here](https://github.com/getyoti/yoti-joomla) to set Yoti up.
 
 ## Removing docker containers
-Run the following commands to remove docker container:
+Run the following commands to remove docker containers:
 
 `docker-compose stop` and
 
